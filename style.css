@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+*{
+  box-sizing: border-box; /*
+  Include padding and border in the element's total width and height:
+  */
+}
+
+body{
+  font-family: 'Muli', sans-serif;
+  margin: 0;
+  display: flex;  /* Center everything we use flex. But remember it will put everything in a row. Horizontal*/
+  align-items: center;  /* x-axis if and only if  it is column. */
+  justify-content: center; /* vertically. But we donot have any height.*/
+  height: 100vh; /*take 100 of height of browser. */
+  overflow: hidden;
+  /*do not want scroll bar by default.*/
+
+}
+
+.container {
+  display: flex;
+  width: 90vw;
+}
+
+.panel{
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 80vh;
+  border-radius: 20px;
+  color: #fff;
+  cursor: pointer;
+  flex: 0.5; /*initial value -even*/
+  margin: 10px; /*seperate the pics*/
+  position: relative; /*h3 is relative*/
+  transition: flex 0.7s ease-in;
+}
+.panel h3{
+  font-size: 23px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  margin: 0;
+  opacity: 0;
+}
+
+.panel.active{
+  flex: 5;
+
+}
+/* No space*/
+.panel.active h3{
+  opacity: 1;
+  transition: opacity 0.3s ease-in 0.4s;
+}
+
+/*Three only with small width*/
+
+@media(max-width:560px){
+  .container{
+    width: 100vw; /*will take space and give us more room*/
+  }
+
+  .panel:nth-of-type(4){
+    display: none;
+
+  }
+  .panel:nth-of-type(5){
+    display: none;
+    
+  }
+
+}
